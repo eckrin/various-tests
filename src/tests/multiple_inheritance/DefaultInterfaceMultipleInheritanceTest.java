@@ -1,4 +1,4 @@
-package tests;
+package tests.multiple_inheritance;
 
 /**
  * 1. 명시적으로 직접 다중상속할 경우 컴파일 에러가 발생한다.

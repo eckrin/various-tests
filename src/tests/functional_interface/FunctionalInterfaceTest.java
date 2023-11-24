@@ -1,4 +1,4 @@
-package tests;
+package tests.functional_interface;
 
 @FunctionalInterface
 public interface FunctionalInterfaceTest {

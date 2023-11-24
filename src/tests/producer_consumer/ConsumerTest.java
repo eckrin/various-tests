@@ -1,4 +1,4 @@
-package tests;
+package tests.producer_consumer;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -20,5 +20,4 @@ public class ConsumerTest {
         ObjIntConsumer<String> objIntConsumer = (t, i) -> System.out.println(t + " " + i);
         objIntConsumer.accept("Java", 8);
     }
-
 }
