@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="095e0bb1-6c97-472c-a0f0-76f0305a47e3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Java.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/rebel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/tests/functional_interface/FunctionalInterfaceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/tests/multiple_inheritance/DefaultInterfaceMultipleInheritanceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/tests/multiple_inheritance/interfaceA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/tests/multiple_inheritance/interfaceB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/tests/producer_consumer/ConsumerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/tests/producer_consumer/MultiThreadProducerConsumerTest$Consumer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/tests/producer_consumer/MultiThreadProducerConsumerTest$Producer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/tests/producer_consumer/MultiThreadProducerConsumerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/tests/producer_consumer/SingleThreadProducerConsumerTest$MyConsumer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/tests/producer_consumer/SingleThreadProducerConsumerTest$MyProducer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test_Java/tests/producer_consumer/SingleThreadProducerConsumerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rebel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/functional_interface/FunctionalInterfaceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/multiple_inheritance/DefaultInterfaceMultipleInheritanceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/producer_consumer/ConsumerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/producer_consumer/MultiThreadProducerConsumerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/producer_consumer/SingleThreadProducerConsumerTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/Test_Spring">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2YHy84MIDMtKcJmTJgXtzHuEmHf" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "android.gradle.sync.needed": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/eckrin/study/Test_Project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="TestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="test.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.eckrin.test.TestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="095e0bb1-6c97-472c-a0f0-76f0305a47e3" name="Changes" comment="" />
+      <created>1700196636865</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700196636865</updated>
+      <workItem from="1700196637915" duration="242000" />
+      <workItem from="1700785693634" duration="241000" />
+      <workItem from="1700785945208" duration="407000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
