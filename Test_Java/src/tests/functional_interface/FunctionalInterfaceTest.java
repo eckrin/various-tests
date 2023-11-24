@@ -1,9 +1,12 @@
 package tests.functional_interface;
 
-@FunctionalInterface
-public interface FunctionalInterfaceTest {
-    void onlyOneAbstractFunction(int i1, int i2);
-    default int defaultFunctionInInterface(int i1, int i2) {
-        return 20231018;
+public class FunctionalInterfaceTest {
+
+    public static void functionalInterfaceTest() {
+        System.out.println(getFunctionalInterface((i1, i2) -> i1*i2));
+    }
+
+    static int getFunctionalInterface(FunctionalInterfaceEx ex) {
+        return ex.defaultFunctionInInterface(1, 2);
     }
 }
