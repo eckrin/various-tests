@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.2.0'
+	id 'org.springframework.boot' version '3.1.6'
 	id 'io.spring.dependency-management' version '1.1.4'
 }
 
@@ -29,10 +29,13 @@ dependencies {
 	// lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	//javax validation
+	// javax validation
 	implementation 'javax.validation:validation-api:2.0.1.Final'
-	//mysql (spring 3.x)
+	// mysql (spring 3.x)
 	runtimeOnly 'com.mysql:mysql-connector-j'
+	// mybatis (spring 3.x)
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

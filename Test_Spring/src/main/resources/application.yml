@@ -9,10 +9,11 @@ server:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul
-    username: root
-    password: ${DB_PASSWORD}
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul
+      username: root
+      password: ${DB_PASSWORD}
 
   jpa:
     open-in-view: true
@@ -23,3 +24,10 @@ spring:
       hibernate:
         default_batch_fetch_size: 500
         format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+mybatis:
+  mapper-locations: mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
