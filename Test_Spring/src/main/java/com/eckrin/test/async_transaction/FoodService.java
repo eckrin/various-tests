@@ -23,15 +23,14 @@ public class FoodService {
     }
 
     @Transactional
-    public List<FoodDto> getFoods() {
+    public List<FoodDto> getFoods() throws InterruptedException{
+        // 데이터 1개 저장
         foodRepository.save(new Food(null, "엽떡"));
 
-        try {
-            foodReleaseService.saveDontGas(new Food(null, "돈가스"));
-        } catch (Exception e) {
-            log.error("exception caused: {}", e.getMessage());
-        }
+        // Async 동작중 오류 발생
+        foodReleaseService.saveDontGas(new Food(null, "돈가스"));
 
+        // db에 남아있는 리스트 반환
         return foodRepository.findAll()
                 .stream()
                 .map(f -> new FoodDto(f.getId(), f.getName()))

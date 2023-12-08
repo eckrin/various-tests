@@ -14,7 +14,7 @@ public class FoodReleaseService {
 
     @Async
     public void saveDontGas(Food food) throws InterruptedException {
-        throw new InterruptedException("exception caused");
-//        foodRepository.save(new Food(null, "돈가스"));
+        foodRepository.save(new Food(null, "돈가스"));
+        throw new InterruptedException("saveDontGas exception caused");
     }
 }
