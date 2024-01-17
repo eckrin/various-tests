@@ -1,8 +1,8 @@
 package com.eckrin.test.async_transaction_test;
 
-import com.eckrin.test.async_transaction.FoodRepository;
-import com.eckrin.test.async_transaction.FoodService;
 import com.eckrin.test.common.CommonTest;
+import com.eckrin.test.common.FoodRepository;
+import com.eckrin.test.common.FoodService;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

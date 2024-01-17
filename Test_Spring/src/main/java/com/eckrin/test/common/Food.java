@@ -1,4 +1,4 @@
-package com.eckrin.test.async_transaction;
+package com.eckrin.test.common;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,5 +1,7 @@
 package com.eckrin.test.async_transaction;
 
+import com.eckrin.test.common.Food;
+import com.eckrin.test.common.FoodRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;

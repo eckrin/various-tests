@@ -1,4 +1,4 @@
-package com.eckrin.test.async_transaction;
+package com.eckrin.test.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,7 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 public class FoodDto {
     private Long id;
     private String name;

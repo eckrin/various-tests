@@ -1,5 +1,7 @@
-package com.eckrin.test.async_transaction;
+package com.eckrin.test.common;
 
+import com.eckrin.test.async_transaction.FoodReleaseService;
+import com.eckrin.test.deserialization.FoodDeserializationDto;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,8 +16,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class FoodService {
 
-    private final FoodReleaseService foodReleaseService;
     private final FoodRepository foodRepository;
+    private final FoodReleaseService foodReleaseService;
 
     @PostConstruct
     public void init() {
@@ -23,7 +25,7 @@ public class FoodService {
     }
 
     @Transactional
-    public List<FoodDto> getFoods() throws InterruptedException{
+    public List<FoodDto> getFoodsAsync() throws InterruptedException{
         // 데이터 1개 저장
         foodRepository.save(new Food(null, "엽떡"));
         log.info("트랜잭션 쓰레드 id = {}", Thread.currentThread().getId());
@@ -36,5 +38,17 @@ public class FoodService {
                 .stream()
                 .map(f -> new FoodDto(f.getId(), f.getName()))
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public List<FoodDeserializationDto> getFoods() {
+        List<Food> savedFoods = foodRepository.findAll();
+        return savedFoods.stream().map(sf -> new FoodDeserializationDto(sf.getId(), sf.getName())).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public FoodDeserializationDto saveFood(FoodDeserializationDto dto) {
+        Food savedFood = foodRepository.save(new Food(dto.getId(), dto.getName()));
+        return new FoodDeserializationDto(savedFood.getId(), savedFood.getName());
     }
 }
