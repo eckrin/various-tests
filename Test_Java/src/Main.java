@@ -1,7 +1,7 @@
-import tests.functional_interface.FunctionalInterfaceTest;
+import tests.facade_pattern.FacadePatternTest;
 
 public class Main {
     public static void main(String[] args) {
-        FunctionalInterfaceTest.functionalInterfaceTest();
+        FacadePatternTest.treatFile();
     }
 }
