@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -33,5 +34,10 @@ public class FoodController {
     @PutMapping("deserialization")
     public FoodDeserializationDto saveFood(@RequestBody FoodDeserializationDto dto) {
         return foodService.saveFood(dto);
+    }
+
+    @PutMapping("dynamic_field")
+    public Map<String, String> saveDynamicFood(@RequestBody Map<String, String> dynamicFood) {
+        return foodService.saveDynamicFood(dynamicFood);
     }
 }

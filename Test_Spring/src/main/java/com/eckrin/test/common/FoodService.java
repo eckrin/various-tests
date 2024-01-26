@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -50,5 +51,13 @@ public class FoodService {
     public FoodDeserializationDto saveFood(FoodDeserializationDto dto) {
         Food savedFood = foodRepository.save(new Food(dto.getId(), dto.getName()));
         return new FoodDeserializationDto(savedFood.getId(), savedFood.getName());
+    }
+
+    @Transactional
+    public Map<String, String> saveDynamicFood(Map<String, String> map) {
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println("entry key: "+entry.getKey()+", entry value: "+entry.getValue());
+        }
+        return map;
     }
 }
