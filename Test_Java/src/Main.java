@@ -1,20 +1,13 @@
-import tests.template_method_pattern.LogTemplate;
+import tests.strategy_pattern.*;
 
 public class Main {
     public static void main(String[] args) {
-        orderItem();
-    }
+        LogContext context = new LogContext(new Strategy001());
+        context.execute(); // 001
+        context.execute(); // 001
 
-    private static void orderItem() {
-
-        LogTemplate<Void> template = new LogTemplate<>() {
-            @Override
-            protected Void call() { // 실제 비즈니스 로직
-                System.out.println("this is core business pattern");
-                return null;
-            }
-        };
-
-        template.log();
+        LogContext_Callback context_callback = new LogContext_Callback();
+        context_callback.execute(new Strategy001()); // 001
+        context_callback.execute(new Strategy002()); // 002
     }
 }
