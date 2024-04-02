@@ -12,6 +12,7 @@ import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.transaction.ChainedTransactionManager;
@@ -22,6 +23,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 @EnableTransactionManagement
@@ -38,6 +41,9 @@ public class DatasourceConfig {
     @Value("${mybatis.mapper-locations}")
     String mPath;
 
+    @Value("${spring.jpa.hibernate.ddl-auto}")
+    private String ddlAuto;
+
     // Database 정보 설정
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
@@ -49,9 +55,15 @@ public class DatasourceConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(
             EntityManagerFactoryBuilder builder,
-            @Qualifier("dataSource") DataSource dataSource) {
+            @Qualifier("dataSource") DataSource dataSource,
+            Environment env) {
+        Map<String, Object> properties = new HashMap<String, Object>();
+        properties.put("hibernate.hbm2ddl.auto", env.getRequiredProperty("spring.jpa.hibernate.ddl-auto")); // application.yml 미동작으로 직접 DatasourceConfig에 추가
+        properties.put("hibernate.dialect", env.getRequiredProperty("spring.jpa.database-platform"));
+
         return builder.dataSource(dataSource)
                 .packages("com.eckrin.test")
+                .properties(properties)
 //                .persistenceUnit("PERSISTENCE_SOCIAL_VR_MEMBER")
 //                .mappingResources("META-INF/member-orm.xml")
                 .build();
