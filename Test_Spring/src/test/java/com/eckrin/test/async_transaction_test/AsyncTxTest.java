@@ -23,10 +23,22 @@ public class AsyncTxTest extends CommonTest {
     private FoodRepository foodRepository;
 
     @Test
+    @DisplayName("동기 호출 중 런타임 예외 발생시 트랜잭션 롤백")
+    public void txRollbackSyncTest() {
+        try {
+            foodService.getFoods();
+        } catch(Exception e) {
+            log.error("동기 트랜잭션 에러 처리");
+        }
+
+        Assertions.assertThat(foodRepository.count()).isEqualTo(0);
+    }
+
+    @Test
     @DisplayName("비동기 호출 쪽에서 예외 발생해도 트랜잭션 롤백은 발생하지 않음")
     public void txRollbackAsyncTest() {
         try {
-            foodService.getFoods();
+            foodService.getFoodsAsync();
         } catch(Exception e) {
             log.error("비동기 트랜잭션 에러 처리");
         }
