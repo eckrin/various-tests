@@ -6,6 +6,7 @@ import java.util.function.DoubleConsumer;
 import java.util.function.ObjIntConsumer;
 
 public class ConsumerTest {
+    public static int a = 0;
 
     public static void consumerTest() {
         Consumer<String> consumer = str -> System.out.println(str + " 8");

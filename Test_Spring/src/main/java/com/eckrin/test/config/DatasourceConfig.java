@@ -58,12 +58,13 @@ public class DatasourceConfig {
             @Qualifier("dataSource") DataSource dataSource,
             Environment env) {
         Map<String, Object> properties = new HashMap<String, Object>();
-        properties.put("hibernate.hbm2ddl.auto", env.getRequiredProperty("spring.jpa.hibernate.ddl-auto")); // application.yml 미동작으로 직접 DatasourceConfig에 추가
+        // hbmddl.auto와 ddl-auto 차이? https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#data.sql.jpa-and-spring-data.creating-and-dropping
+        properties.put("hibernate.hbm2ddl.auto", env.getRequiredProperty("spring.jpa.hibernate.ddl-auto"));
         properties.put("hibernate.dialect", env.getRequiredProperty("spring.jpa.database-platform"));
 
         return builder.dataSource(dataSource)
                 .packages("com.eckrin.test")
-                .properties(properties)
+                .properties(properties) // application.yml 미동작으로 직접 DatasourceConfig에 추가
 //                .persistenceUnit("PERSISTENCE_SOCIAL_VR_MEMBER")
 //                .mappingResources("META-INF/member-orm.xml")
                 .build();
