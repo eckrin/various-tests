@@ -14,8 +14,8 @@ public class CarController {
 
     @DeleteMapping
     public List<CarDto> deleteCar(
-//            @RequestParam(required = false) String name
+            @RequestParam(required = false) String name
     ) {
-        return carService.deleteCarAndGetResult("");
+        return carService.deleteCarAndGetResult(name);
     }
 }
