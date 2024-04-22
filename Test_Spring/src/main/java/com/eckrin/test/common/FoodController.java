@@ -10,13 +10,13 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping
+@RequestMapping("/food")
 @Slf4j
 public class FoodController {
 
     private final FoodService foodService;
 
-    @GetMapping("async_transaction")
+    @GetMapping("/async_transaction")
     public List<FoodDto> getFoodsAsync() {
         try {
             return foodService.getFoodsAsync();
@@ -26,17 +26,17 @@ public class FoodController {
         }
     }
 
-    @GetMapping("deserialization")
+    @GetMapping("/deserialization")
     public List<FoodDeserializationDto> getFoods() {
         return foodService.getFoods();
     }
 
-    @PutMapping("deserialization")
+    @PutMapping("/deserialization")
     public FoodDeserializationDto saveFood(@RequestBody FoodDeserializationDto dto) {
         return foodService.saveFood(dto);
     }
 
-    @PutMapping("dynamic_field")
+    @PutMapping("/dynamic_field")
     public Map<String, String> saveDynamicFood(@RequestBody Map<String, String> dynamicFood) {
         return foodService.saveDynamicFood(dynamicFood);
     }
