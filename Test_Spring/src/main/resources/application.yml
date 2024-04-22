@@ -27,7 +27,14 @@ spring:
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
 
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      name: testJob
+
 mybatis:
   mapper-locations: mapper/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
