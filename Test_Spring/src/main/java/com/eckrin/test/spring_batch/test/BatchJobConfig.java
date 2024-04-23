@@ -1,4 +1,4 @@
-package com.eckrin.test.spring_batch;
+package com.eckrin.test.spring_batch.test;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,29 +26,38 @@ public class BatchJobConfig {
     private final String JOB_NAME = "testJob";
     private final String STEP_NAME = "testStep";
 
+    /**
+     * Job 등록
+     */
     @Bean
     public Job testJob(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
         return new JobBuilder(JOB_NAME, jobRepository)
-                .incrementer(new RunIdIncrementer())
-                .start(testStep(jobRepository, transactionManager))
+                .incrementer(new RunIdIncrementer()) // sequential id
+                .start(testStep(jobRepository, transactionManager)) // step 설정
                 .build();
     }
 
+    /**
+     * Step 등록
+     */
     @Bean
     @JobScope
     public Step testStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
         return new StepBuilder(STEP_NAME, jobRepository)
-                .tasklet(testTasklet(), transactionManager)
+                .tasklet(testTasklet(), transactionManager) // tasklet 설정
                 .build();
     }
 
+    /**
+     * Tasklet: Reader-Processor-Writer를 구분하지 않는 단일 step
+     */
     @Bean
     @StepScope
     public Tasklet testTasklet() {
         return new Tasklet() {
             @Override
             public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-                System.out.println("Spring Batch Test Success");
+                log.info("Spring Batch Test Success");
                 return RepeatStatus.FINISHED; // 작업에 대한 Status 명시
             }
         };

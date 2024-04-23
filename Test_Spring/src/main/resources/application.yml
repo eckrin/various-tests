@@ -31,10 +31,12 @@ spring:
     jdbc:
       initialize-schema: always
     job:
-      name: testJob
+      name: ${JOB_NAME}
 
 mybatis:
   mapper-locations: mapper/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
 
+test:
+  file-name: ${FILE_NAME}
