@@ -1,6 +1,5 @@
 package com.eckrin.test.config;
 
-import jakarta.persistence.EntityManagerFactory;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -17,13 +16,9 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.transaction.ChainedTransactionManager;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.Isolation;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -99,13 +94,13 @@ public class DatasourceConfig {
         // hbmddl.auto와 ddl-auto 차이? https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#data.sql.jpa-and-spring-data.creating-and-dropping
         properties.put("hibernate.hbm2ddl.auto", env.getRequiredProperty("spring.jpa.hibernate.ddl-auto"));
         properties.put("hibernate.dialect", env.getRequiredProperty("spring.jpa.database-platform"));
+        properties.put("hibernate.physical_naming_strategy", env.getRequiredProperty("spring.jpa.properties.hibernate.physical_naming_strategy"));
 
         return builder.dataSource(dataSource)
                 .packages("com.eckrin.test") // 엔티티 클래스 경로 지정
                 .properties(properties) // env(YAML)에서 가져온 맵 형태의 프로퍼티 설정
                 .build();
     }
-
 
 //    // JPA 설정
 //    @Primary
@@ -122,8 +117,6 @@ public class DatasourceConfig {
 //        return builder.dataSource(dataSource)
 //                .packages("com.eckrin.test")
 //                .properties(properties) // application.yml 미동작으로 직접 DatasourceConfig에 추가
-////                .persistenceUnit("PERSISTENCE_SOCIAL_VR_MEMBER")
-////                .mappingResources("META-INF/member-orm.xml")
 //                .build();
 //    }
 

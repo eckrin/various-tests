@@ -24,6 +24,7 @@ spring:
       hibernate:
         default_batch_fetch_size: 500
         format_sql: true
+        physical_naming_strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
 
