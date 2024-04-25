@@ -6,4 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface CarMapper {
 
     void deleteByName(String carName);
+    Long insertCar(CarDto dto);
+    Car selectCarById(Long id);
 }

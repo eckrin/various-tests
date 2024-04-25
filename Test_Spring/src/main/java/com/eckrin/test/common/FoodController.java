@@ -40,4 +40,12 @@ public class FoodController {
     public Map<String, String> saveDynamicFood(@RequestBody Map<String, String> dynamicFood) {
         return foodService.saveDynamicFood(dynamicFood);
     }
+
+    /**
+     * 커스텀한 DatasourceConfig가 제대로 동작하는지 롤백 테스트
+     */
+    @PostMapping("/save")
+    public FoodDto saveFood_Rollback_JPA(@RequestBody FoodDto dto) {
+        return foodService.saveFood_Rollback_JPA(dto);
+    }
 }

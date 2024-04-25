@@ -60,4 +60,12 @@ public class FoodService {
         }
         return map;
     }
+
+    @Transactional
+    public FoodDto saveFood_Rollback_JPA(FoodDto dto) {
+        Food savedFood = foodRepository.save(new Food(null, dto.getName()));
+        throw new RuntimeException("JPA 롤백 테스트");
+//        return new FoodDto(savedFood.getId(), savedFood.getName());
+    }
+
 }

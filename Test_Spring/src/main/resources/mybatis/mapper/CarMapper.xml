@@ -2,11 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.eckrin.test.mybatis_where_clause.CarMapper">
 
-    <delete id="deleteByName"
-            parameterType="String">
+    <delete id="deleteByName" parameterType="String">
         DELETE FROM cars
         WHERE 1=1
           AND name = #{value}
     </delete>
+
+    <insert id="insertCar" parameterType="com.eckrin.test.mybatis_where_clause.Car" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO cars (name)
+        VALUES (#{name})
+    </insert>
+
+    <select id="selectCarById" resultType="com.eckrin.test.mybatis_where_clause.Car">
+        SELECT * FROM cars
+        WHERE 1=1
+          AND id = #{id}
+    </select>
 
 </mapper>

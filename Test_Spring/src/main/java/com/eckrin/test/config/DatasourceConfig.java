@@ -75,7 +75,7 @@ public class DatasourceConfig {
     }
 
     /**
-     * SqlSession을 구현하고 코드에서 SqlSession을 대체하는 역할을 한다.
+     * SqlSession을 구현하여 SqlSession을 대체하여 사용된다.
      */
     @Primary
     @Bean
@@ -86,7 +86,7 @@ public class DatasourceConfig {
     /**
      * LocalContainerEntityManagerFactoryBean
      * EntityManager를 생성하는 팩토리
-     * SessionFactoryBean과 동일한 역할, Datasource와 mapper를 스캔할 .xml 경로를 지정하듯이
+     * SessionFactoryBean과 동일한 역할
      * datasource와 엔티티가 저장된 폴더 경로를 매핑해주면 된다.
      */
     @Primary
@@ -101,8 +101,8 @@ public class DatasourceConfig {
         properties.put("hibernate.dialect", env.getRequiredProperty("spring.jpa.database-platform"));
 
         return builder.dataSource(dataSource)
-                .packages("com.eckrin.test")
-                .properties(properties) // application.yml 미동작으로 직접 DatasourceConfig에 추가
+                .packages("com.eckrin.test") // 엔티티 클래스 경로 지정
+                .properties(properties) // env(YAML)에서 가져온 맵 형태의 프로퍼티 설정
                 .build();
     }
 

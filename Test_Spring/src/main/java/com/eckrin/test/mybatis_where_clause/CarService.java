@@ -1,6 +1,7 @@
 package com.eckrin.test.mybatis_where_clause;
 
-import jakarta.annotation.PostConstruct;
+import com.eckrin.test.common.Food;
+import com.eckrin.test.common.FoodDto;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +20,7 @@ public class CarService {
     private final CarMapper carMapper;
     private final EntityManager em;
 
-    @PostConstruct
+//    @PostConstruct
     public void init() {
         carRepository.deleteAllInBatch();
 //        saveCars();
@@ -44,6 +45,17 @@ public class CarService {
         carRepository.save(new Car(null, "포르쉐"));
         carRepository.save(new Car(null, "벤틀리"));
         carRepository.save(new Car(null, "애스던 마틴"));
+    }
+
+    /**
+     * 커스텀한 DatasourceConfig가 제대로 동작하는지 롤백 테스트
+     */
+    @Transactional
+    public CarDto saveCar_Rollback_MyBatis(CarDto dto) {
+        carMapper.insertCar(dto);
+        Car savedCar = carMapper.selectCarById(dto.getId());
+        throw new RuntimeException("MyBatis 롤백 테스트");
+//        return new CarDto(savedCar.getId(), savedCar.getName());
     }
 
 }
