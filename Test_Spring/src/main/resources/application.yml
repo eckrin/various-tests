@@ -33,6 +33,7 @@ spring:
       initialize-schema: always
     job:
       name: ${JOB_NAME}
+      enabled: false # Job 실행을 스케줄러에게 위임하기 위하여 설정
 
 mybatis:
   mapper-locations: mapper/**/*.xml
