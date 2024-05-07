@@ -1,7 +1,5 @@
 package com.eckrin.test.spring_batch.database;
 
-import com.eckrin.test.spring_batch.domain.account.Account;
-import com.eckrin.test.spring_batch.domain.account.AccountRepository;
 import com.eckrin.test.spring_batch.domain.order.Order;
 import com.eckrin.test.spring_batch.domain.order.OrderRepository;
 import lombok.RequiredArgsConstructor;
@@ -101,9 +99,9 @@ public class ClearDataConfig {
         return new RepositoryItemReaderBuilder<Order>()
                 .name("trOrderReader")
                 .repository(orderRepository)
-                .methodName("findAll")
+                .methodName("findByIdBefore")
                 .pageSize(5) // chunkSize와 일치하게 설정
-                .arguments(List.of())
+                .arguments(List.of(32L))
                 .sorts(Collections.singletonMap("id", Sort.Direction.ASC))
                 .build();
 
