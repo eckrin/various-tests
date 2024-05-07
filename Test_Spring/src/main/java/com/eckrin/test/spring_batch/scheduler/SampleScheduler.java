@@ -21,7 +21,7 @@ import java.util.Collections;
 @RequiredArgsConstructor
 public class SampleScheduler {
 
-    private final Job testJob;
+    private final Job clearDataJob;
     private final JobLauncher jobLauncher; // 스케줄링을 활용하여 Job 실행
 
     @Scheduled(cron = "0 */1 * * * *") // 1분마다 실행할 수 있게 함
@@ -31,6 +31,6 @@ public class SampleScheduler {
                 Collections.singletonMap("requestTime", new JobParameter(System.currentTimeMillis(), Long.class))
         );
 
-        jobLauncher.run(testJob, jobParameters);
+        jobLauncher.run(clearDataJob, jobParameters);
     }
 }
