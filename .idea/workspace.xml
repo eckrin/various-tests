@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="095e0bb1-6c97-472c-a0f0-76f0305a47e3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Spring/src/main/java/com/eckrin/test/spring_batch/database/ClearDataConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Spring/src/main/java/com/eckrin/test/spring_batch/database/ClearDataConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Spring/src/main/java/com/eckrin/test/spring_batch/scheduler/SampleScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Spring/src/main/java/com/eckrin/test/spring_batch/scheduler/SampleScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Spring/src/test/java/com/eckrin/test/async_transaction_test/AsyncTxTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Spring/src/test/java/com/eckrin/test/async_transaction_test/AsyncTxTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Spring/src/test/java/com/eckrin/test/common/CommonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Spring/src/test/java/com/eckrin/test/common/CommonTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +96,7 @@
       <workItem from="1700785693634" duration="241000" />
       <workItem from="1700785945208" duration="407000" />
       <workItem from="1713798861943" duration="43000" />
+      <workItem from="1715416266506" duration="13000" />
     </task>
     <servers />
   </component>

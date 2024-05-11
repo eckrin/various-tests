@@ -101,7 +101,7 @@ public class ClearDataConfig {
                 .repository(orderRepository)
                 .methodName("findByIdBefore")
                 .pageSize(5) // chunkSize와 일치하게 설정
-                .arguments(List.of(32L))
+                .arguments(List.of(34L))
                 .sorts(Collections.singletonMap("id", Sort.Direction.ASC))
                 .build();
 

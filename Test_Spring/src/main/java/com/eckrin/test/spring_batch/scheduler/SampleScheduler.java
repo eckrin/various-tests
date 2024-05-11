@@ -24,7 +24,8 @@ public class SampleScheduler {
     private final Job clearDataJob;
     private final JobLauncher jobLauncher; // 스케줄링을 활용하여 Job 실행
 
-    @Scheduled(cron = "0 */1 * * * *") // 1분마다 실행할 수 있게 함
+//    @Scheduled(cron = "0 */1 * * * *") // 1분마다 실행할 수 있게 함
+    @Scheduled(cron = "0 15 15 * * *") // 매일 특정 시간(15시 15분)에 실행
     public void testJobRun() throws JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
 
         JobParameters jobParameters = new JobParameters(

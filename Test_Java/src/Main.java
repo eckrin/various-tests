@@ -1,13 +1,21 @@
-import tests.strategy_pattern.*;
+import tests.observer_pattern.Client;
+import tests.observer_pattern.Store;
+import tests.observer_pattern.StoreImpl;
 
 public class Main {
     public static void main(String[] args) {
-        LogContext context = new LogContext(new Strategy001());
-        context.execute(); // 001
-        context.execute(); // 001
+        Store store = new StoreImpl();
+        Client client1 = new Client("client 1");
+        Client client2 = new Client("client 2");
+        Client clientNotSubscribe = new Client("client 3");
 
-        LogContext_Callback context_callback = new LogContext_Callback();
-        context_callback.execute(new Strategy001()); // 001
-        context_callback.execute(new Strategy002()); // 002
+        store.registerClient(client1);
+        store.registerClient(client2);
+
+        store.informClients();
+
+        store.removeClient(client2);
+
+        store.informClients();
     }
 }
