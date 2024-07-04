@@ -1,9 +1,11 @@
+package tests.synchronized_principal_test;
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Main {
+public class StaticSynchronizedMain {
     private static int THREAD_COUNT = 200;
     public static Counter counter;
 
@@ -14,8 +16,8 @@ public class Main {
         for(int j=0; j<10000; j++) {
             CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
 
-            counter = new Counter();
             for (int i = 0; i < THREAD_COUNT; i++) {
+                counter = new Counter();
                 service.submit(() -> {
                     try {
                         counter.addOne();
@@ -39,13 +41,13 @@ public class Main {
 
 
     static class Counter {
-        int count = 0;
+        static int count = 0;
 
-        public synchronized void addOne() {
+        public static synchronized void addOne() {
             count++;
         }
 
-        public synchronized void subOne() {
+        public static synchronized void subOne() {
             count--;
         }
     }

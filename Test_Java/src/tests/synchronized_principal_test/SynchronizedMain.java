@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class SyncronizedMain {
+public class SynchronizedMain {
     private static int THREAD_COUNT = 200;
     public static Counter counter;
 
