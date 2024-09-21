@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
@@ -18,11 +19,11 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 public class AsyncTxTest extends CommonTest {
 
     @Autowired
-    PlatformTransactionManager transactionManager;
-    @Autowired
-    private FoodService foodService;
+    JpaTransactionManager transactionManager;
     @Autowired
     private FoodRepository foodRepository;
+    @Autowired
+    private FoodService foodService;
 
     @Test
     @DisplayName("동기 호출 중 런타임 예외 발생시 트랜잭션 롤백")
