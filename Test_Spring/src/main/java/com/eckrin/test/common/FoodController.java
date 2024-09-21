@@ -4,9 +4,11 @@ import com.eckrin.test.deserialization.FoodDeserializationDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.async.DeferredResult;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ForkJoinPool;
 
 @RestController
 @RequiredArgsConstructor
@@ -15,6 +17,23 @@ import java.util.Map;
 public class FoodController {
 
     private final FoodService foodService;
+
+    @PostMapping("/save/async")
+    public DeferredResult<String> deferredMethod() {
+        DeferredResult<String> deferredResult = new DeferredResult<>();
+
+        ForkJoinPool.commonPool().submit(() -> {
+            try {
+                // 긴 작업 시뮬레이션
+                Thread.sleep(5000);
+                deferredResult.setResult("DeferredResult processing done!");
+            } catch (InterruptedException e) {
+                deferredResult.setErrorResult(e);
+            }
+        });
+
+        return deferredResult;
+    }
 
     @GetMapping("/async_transaction")
     public List<FoodDto> getFoodsAsync() {
