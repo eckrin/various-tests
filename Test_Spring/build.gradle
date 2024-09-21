@@ -40,6 +40,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	// spring batch
 	implementation 'org.springframework.boot:spring-boot-starter-batch'
+    // swagger
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
 
 	// test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
